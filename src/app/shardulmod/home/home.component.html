@@ -1,0 +1,88 @@
+
+<div class="container" style="width: 778; margin-top: 20px;margin-left: 30px;">
+    <br>
+    <h2 style="color: rgb(130, 27, 227); ;width: 878px;margin-left:550px;"><strong>Full Stack Curd App </strong> </h2> <br>
+    <mat-form-field  style="width: 200px; margin-left:50px">
+        <input matInput placeholder="Enter PRODUCT_ID" [(ngModel)]="shardul.PRODUCT_ID" type="text">
+        <mat-icon fontIcon="person" matSuffix ></mat-icon>
+    </mat-form-field>
+    <mat-form-field  style="width: 200px; margin-left:50px">
+        <input matInput placeholder="Enter PRODUCT_NAME" [(ngModel)]="shardul.PRODUCT_NAME" type="text">
+        <mat-icon fontIcon="person" matSuffix ></mat-icon>
+    </mat-form-field>
+    <mat-form-field  style="width: 200px; margin-left : 50px">
+        <input matInput placeholder="Enter CATEGORY_ID" [(ngModel)]="shardul.CATEGORY_ID" type="text">
+        <mat-icon fontIcon="person" matSuffix ></mat-icon>
+    </mat-form-field>
+    <mat-form-field  style="width: 200px; margin-left : 50px">
+        <input matInput placeholder="Enter CATEGORY_NAME"[(ngModel)]="shardul.CATEGORY_NAME" type="text">
+        <mat-icon fontIcon="person" matSuffix ></mat-icon>
+    </mat-form-field>
+    <button mat-flat-button (click)="addoreditsShardul(shardul)"  style="margin-left:33px">Submit</button>
+    <button mat-flat-button  (click)="clearall()" style="margin-left:10px;color:#ff0000" background-color: #ff0000;>Cancel</button>
+    <br>
+    <table style="width: 778px;" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>USER  ID </th>
+          <td mat-cell *matCellDef="let shardul"> {{shardul.id}} </td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="PRODUCT_ID">
+          <th mat-header-cell *matHeaderCellDef> PRODUCT_ID </th>
+          <td mat-cell *matCellDef="let shardul"> {{shardul.PRODUCT_ID}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="PRODUCT_NAME">
+          <th mat-header-cell *matHeaderCellDef>PRODUCT_NAME</th>
+          <td mat-cell *matCellDef="let shardul"> {{shardul.PRODUCT_NAME}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="CATEGORY_ID">
+          <th mat-header-cell *matHeaderCellDef>CATEGORY_ID </th>
+          <td mat-cell *matCellDef="let shardul"> {{shardul.CATEGORY_ID}} </td>
+        </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="CATEGORY_NAME">
+        <th mat-header-cell *matHeaderCellDef>CATEGORY_NAME </th>
+        <td mat-cell *matCellDef="let shardul"> {{shardul.CATEGORY_NAME}} </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="edit">
+        <th mat-header-cell *matHeaderCellDef>edit </th>
+        <td mat-cell *matCellDef="let shardul"> <button style="height: 27px; width: auto;" (click)="editfill(shardul)" mat-flat-button> edit </button> </td>
+      </ng-container>
+       <!-- Symbol Column -->
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef>delete </th>
+        <td mat-cell *matCellDef="let shardul"> <button style="height: 27px; width: auto;" (click)="deleteShardul(shardul.id)" color="RED" mat-flat-button> delete </button> </td>
+      </ng-container>
+
+      
+
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let shardul; columns: displayedColumns;"></tr>
+       
+     
+    </table>
+    <!-- pagination -->
+    <mat-paginator [pageSizeOptions]="[10, 20]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements">
+    </mat-paginator>
+
+
+</div>
